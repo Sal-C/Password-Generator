@@ -1,0 +1,19 @@
+body {
+    background-color: #1b1b1b;
+    color: white;
+}
+
+h2 {
+    font-size: 200%;
+}
+h3 {
+    font-size: 150%;
+}
+.content {
+    width: 500px;
+    margin: auto;
+    border-style: solid;
+    border-color: red;
+    border-width: 3px;
+    text-align: center;
+}
