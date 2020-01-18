@@ -1,14 +1,17 @@
 body {
     background-color: #1b1b1b;
     color: white;
+    font-size: 120%;
 }
 
 h2 {
     font-size: 200%;
 }
+
 h3 {
     font-size: 150%;
 }
+
 .content {
     width: 500px;
     margin: auto;
@@ -16,4 +19,11 @@ h3 {
     border-color: red;
     border-width: 3px;
     text-align: center;
+}
+
+#s {
+    background-color: #1b1b1b;
+    color: white;
+    font-size: 120%;
+    border-color: red;
 }

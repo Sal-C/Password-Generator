@@ -12,17 +12,21 @@
 
     <div class="content">
         <h2>Generate a password!</h2><br>
-        <h3>Select Length</h3>
-            <form>
+
+            <h3>Select Length:</h3>
             Quantity (between 8 and 128):
-            <input type="number" name="quantity" min="8" max="128">
-          </form><br>
-        <h3>Select Special Characters</h3>
-            <input type="checkbox" name="vehicle1" value="sp"> Special Characters<br>
-            <input type="checkbox" name="vehicle2" value="num"> Arabic Numerals<br>
-            <input type="checkbox" name="vehicle3" value="low"> Lowercase Letters<br>
-            <input type="checkbox" name="vehicle3" value="up"> Upercase Letters<br><br>
-            <input type="submit" value="Submit">
+            <input id= "quantity" type="number" name="quantity" min="8" max="128" value="">
+            <br><br>
+         
+            <h3>Select Special Characters:</h3>
+            <input type="checkbox" id="box1" onclick="checkbox1()" value=""> Upercase Letters<br>
+            <input type="checkbox" id="box2" onclick="checkbox2()" value=""> Lowercase Letters<br>
+            <input type="checkbox" id="box3" onclick="checkbox3()" value=""> Arabic Numerals<br>
+            <input type="checkbox" id="box4" onclick="checkbox4()" value=""> Special Characters<br><br>
+            <input type="button" onclick="generator()" value="Generate">
+            <br><br>
+            Generated Password<br>
+            <input type="text" id="gPassword">
         
     </div>
 
@@ -30,6 +34,59 @@
     
 
     <script type="text/javascript">
+
+
+        // check box
+
+        var all = [];
+        var up = document.getElementById('box1');
+        var low = document.getElementById('box2');
+        var num = document.getElementById('box3');
+        var sp = document.getElementById('box4')
+        function checkbox1(){
+            
+            if (up.checked == true){
+                all.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');}
+        }
+
+        function checkbox2(){
+            
+            if (low.checked == true){
+                all.push('abcdefghijklmnopqrstuvwxyz');}
+        }
+
+        function checkbox3(){
+            
+            if (num.checked == true){
+                all.push('1234567890');}
+        }
+
+        function checkbox4(){
+            
+            if (sp.checked == true){
+                all.push('!@#$%&');}
+        }
+        
+        function generator(){
+            
+            var psLength = document.getElementById("quantity").value;
+            var joint = all.join();
+            
+            
+            
+
+           
+
+            var password =""
+            //for loop to generate password given
+            for (var i = 0; i <= psLength - 1; i++){
+                password = password + joint.charAt(Math.floor(Math.random() * Math.floor(joint.length - 1)));
+            }
+
+            document.getElementById("gPassword").value = password;
+
+
+        }
         
         
     
