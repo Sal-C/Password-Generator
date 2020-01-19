@@ -14,11 +14,11 @@
         <h2>Create a Password!</h2><br>
 
             <h3>Select Length:</h3>
-            Quantity (between 8 and 128):
+            Length (between 8 and 128):
             <input id= "quantity" type="number" name="quantity" min="8" max="128" value="">
             <br><br>
          
-            <h3>Select Special Characters:</h3>
+            <h3>Select Character Type:</h3>
             <input type="checkbox" id="box1" onclick="checkbox1()" value=""> Upercase Letters<br>
             <input type="checkbox" id="box2" onclick="checkbox2()" value=""> Lowercase Letters<br>
             <input type="checkbox" id="box3" onclick="checkbox3()" value=""> Arabic Numerals<br>
@@ -36,13 +36,15 @@
     <script type="text/javascript">
 
 
-        // check box
+        
 
         var all = [];
         var up = document.getElementById('box1');
         var low = document.getElementById('box2');
         var num = document.getElementById('box3');
         var sp = document.getElementById('box4')
+
+        // checkboxes to determine character type(s)
 
         function checkbox1(){
             
@@ -101,19 +103,13 @@
             var pwLength = document.getElementById("quantity").value;
             var joint = all.join();
             
-            
-            
-
-           
-
             var password =""
-            //for loop to generate password given
+            //for loop to generate password given length and character type(s)
             for (var i = 0; i <= pwLength - 1; i++){
                 password = password + joint.charAt(Math.floor(Math.random() * Math.floor(joint.length - 1)));
             }
 
             document.getElementById("gPassword").value = password;
-
 
         }
         
