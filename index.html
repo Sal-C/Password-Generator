@@ -11,7 +11,7 @@
 <body>
 
     <div class="content">
-        <h2>Generate a password!</h2><br>
+        <h2>Create a Password!</h2><br>
 
             <h3>Select Length:</h3>
             Quantity (between 8 and 128):
@@ -43,33 +43,62 @@
         var low = document.getElementById('box2');
         var num = document.getElementById('box3');
         var sp = document.getElementById('box4')
+
         function checkbox1(){
             
             if (up.checked == true){
                 all.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');}
+            else{
+                for( var i = 0; i < all.length; i++){
+                    if ( all[i] === 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'){
+                        all.splice(i,1);
+                    }
+                }
+            }
         }
 
         function checkbox2(){
             
             if (low.checked == true){
                 all.push('abcdefghijklmnopqrstuvwxyz');}
+            else{
+                for( var i = 0; i < all.length; i++){
+                    if ( all[i] === 'abcdefghijklmnopqrstuvwxyz'){
+                        all.splice(i,1);
+                    }
+                }
+            }
         }
 
         function checkbox3(){
             
             if (num.checked == true){
                 all.push('1234567890');}
+            else{
+                for( var i = 0; i < all.length; i++){
+                    if ( all[i] === '1234567890'){
+                        all.splice(i,1);
+                    }
+                }
+            }
         }
 
         function checkbox4(){
             
             if (sp.checked == true){
-                all.push('!@#$%&');}
+                all.push("!#$%&'()*+,-./:;<=>?@[]^_`{|}~");}
+            else{
+                for( var i = 0; i < all.length; i++){
+                    if ( all[i] === "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"){
+                        all.splice(i,1);
+                    }
+                }
+            }
         }
         
         function generator(){
             
-            var psLength = document.getElementById("quantity").value;
+            var pwLength = document.getElementById("quantity").value;
             var joint = all.join();
             
             
@@ -79,7 +108,7 @@
 
             var password =""
             //for loop to generate password given
-            for (var i = 0; i <= psLength - 1; i++){
+            for (var i = 0; i <= pwLength - 1; i++){
                 password = password + joint.charAt(Math.floor(Math.random() * Math.floor(joint.length - 1)));
             }
 
